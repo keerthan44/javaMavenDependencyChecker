@@ -1,0 +1,206 @@
+body, html {
+    height: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .bg-image {
+    /* The image used */
+    background-image: url("/media/keerthan/CF69-9E08/f/Dependency_checker_san/images/pngtree-matrix-data-code-hacker-background-image_908351.png");
+  
+    /* Add the blur effect */
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Position text in the middle of the page/image */
+  .bg-text {
+    background-color: rgb(14, 10, 10); /* Fallback color */
+    background-color: #00000066; /* Black w/opacity/see-through */
+    color: hwb(0 98% 0%);
+    font-weight: bold;
+    border: 3px solid #829460;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100vw;
+    padding: 20px;
+    text-align: center;
+    height: 100vh;
+  }  
+
+p {
+   color: white; 
+}
+
+.jumbotron {
+    background-color: #11ffee00;
+
+}
+
+#xml_path{
+  color: black;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: row;    
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .flex-item-left {
+    padding: 10px;
+    flex: 50%;
+    padding-right: 25%;
+  }
+  
+  .flex-item-right {
+    padding: 10px;
+    flex: 50%;
+  }
+
+
+
+
+
+
+  .main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main1 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+  }
+  
+  .main2 {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .main3 {
+    height: 15vh;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .box1 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+  }
+  
+  .box2 {
+    margin-top: 160px;
+    width: 45%;
+    align-items: center;
+    align-content: center;
+    color: #DEF5E5;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .box1 #box5 {
+    height: 100px;
+    padding-left: 30px;
+    padding-top: 5px;
+    color: #DEF5E5;
+  }
+  
+  .box1 #box6 {
+    height: 500px;
+    padding-left: 30px;
+    padding-top: 60px;
+    color: #DEF5E5;
+  }
+
+  #box9 {
+    height: 500px;
+    padding-left: 200px;
+    padding-top: 60px;
+    color: #DEF5E5;
+    display: flex;
+    flex-direction: row;
+  }
+
+  textarea {
+    background-color: #DEF5E5;
+    width: 378px; 
+    height: 484px;
+    color: black;
+    font-size: x-small;
+  }
+
+  #textarea1,#textarea2
+  {
+    background-color: #DEF5E5;
+    width: 378px; 
+    height: 380px;
+    color: black;
+    font-size: x-small;
+  }
+  .box2 #inBox2 {
+    padding-bottom: 20%;
+  }
+
+  form {
+    color: #DEF5E5;
+  }
+
+  .old{
+    padding-right: 15%;
+  }
+
+  .btn{
+    color: black;
+    /* padding-bottom: 15%; */
+    /* line-height: 1.5rem; */
+  }
+
+/* .goBack {
+  padding-left: 1200px;
+  padding-top:500px;
+  position:absolute;
+} */
+
+
+#dep_tbl{
+  color:black;
+  background:white;
+}
+
+#rfs_btn{
+  
+  padding-top:500px;
+}
+#xml-path {
+  color:rgb(14, 10, 10)
+}
+
+.goBackB{
+  position:absolute;
+  padding-top:400px;
+  padding-left:400px;
+}

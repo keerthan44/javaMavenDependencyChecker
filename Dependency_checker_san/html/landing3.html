@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Landing HTML</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/home/keerthan/code/hackathons/sem3/hallothon/Dependency_checker_san/css/styles.css">
+
+</head>
+<body>
+
+    <div class="bg-image"></div>
+
+    <div class="bg-text">
+        <div class="main">
+
+
+            <div class="main1">
+        
+              <div class="box1">
+                <div id="box5">
+                  <h1>Breaking Changes</h1>
+                </div>
+                <div id="box9">
+                    <div class="old">
+                        <form id="button1">
+                            <button class="btn btn-dark" type="submit" value="submit" nm="button1">Valid Versions</button>
+                        </form>
+                        <br><br>
+                        <!-- <textArea rows = '30' cols = '60' id="textarea" class="txt">        Dependency         Version</textArea> 
+                        -->
+                        <table class = "table table-ordered table-striped" id = "dep_tbl">
+                        <tr>
+                          <th>Dependency        </th>
+                          <th>Safe Versions</th>
+                          
+                        </tr>
+                    </div>
+                </div>
+                <br><br>
+                <div class="goBackB"><a href="/home/keerthan/code/hackathons/sem3/hallothon/Dependency_checker_san/html/landing.html">
+                    <button class="btn btn-dark">Go Back</button>
+                </div>
+            </div>
+          
+        </div>
+        <script>
+            $(document).ready(function () {
+            $("#button1").submit(function (e) {
+                console.log('inside ajax1')
+                e.preventDefault();
+                $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:5000/brkn",
+                crossDomain: true,
+                success: function (resultData) {
+                    console.log("success");
+                    console.log(resultData);
+                    // const textarea = document.getElementById("textarea");
+                    console.log(Object.keys(resultData).length);
+                    console.log(resultData)
+                    // for (let i = 0; i < Object.keys(resultData).length; i++) {
+                        
+                    //     textarea.value += "\r\n"+"      "+resultData[i][0] + "       "+resultData[i][1];
+                    // }
+                    // console.log(textarea.value);
+                    const tbl = document.getElementById('dep_tbl');
+                    var dep_data='';
+                    for(let i=0; i <= Object.keys(resultData).length;i++){
+                      // console.log("in for")
+                      // textarea.value += "\r\n"+resultData[i][0]+"        "+resultData[i][1]+"        "+resultData[i][2];
+                      
+                      var row = tbl.insertRow(-1);
+                      var cell1 = row.insertCell(0)
+                      var cell2 = row.insertCell(1)
+                      
+                      
+                      cell1.innerHTML = resultData[i][0]+"      ";
+                      cell2.innerHTML = resultData[i][1];
+                      
+                      
+                    }
+                },
+                error: (result) => {
+                    console.log("error");
+                    console.log(result);
+                },
+                });
+            });
+            });
+        </script>

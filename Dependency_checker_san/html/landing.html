@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Landing HTML</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/home/keerthan/code/hackathons/sem3/hallothon/Dependency_checker_san/css/styles.css">
+
+</head>
+<body>
+
+    <div class="bg-image"></div>
+
+    <div class="bg-text">
+        <div class="main">
+
+
+            <div class="main1">
+        
+              <div class="box1">
+                <div id="box5">
+                  <h1>Dependency Checker</h1>
+                </div>
+                <div id="box6">
+                    <form class="form-inline">
+                      <div class="formPath">
+                        <div class="xmlpath"><label for="xml_path">Xml path:</label></div>
+                        <div class="text"><p><input type="text" id="xml_path" name="nm" /></p></div>
+                        <button type="submit" class="btn btn-dark" value="Submit">submit</button>
+                    </div>
+                        <br /><br />
+                      </form>
+                      <table class = "table table-ordered table-striped" id = "dep_tbl">
+                        <tr>
+                          <th>Dependency</th>
+                          <th>Current Version</th>
+                          <th>Latest Version</th>
+                        </tr>
+              
+                      </table>
+                      <!-- <textarea rows="30" cols="60" id="textarea">Dependencies       Current Version     Latest Version</textarea> -->
+                </div>
+                <!-- <div id="box7">Box 7</div> -->
+              </div>
+        
+              <div class="box2">
+                    <div id="inBox2">
+                      <p>Check for any new versions in Transitive Dependencies, here</p>
+                        <a href ="landing2.html">
+                            <button>Transitive Dependencies</button>
+                          </a>
+                          <br />
+                          <a href="/home/keerthan/code/hackathons/sem3/hallothon/Dependency_checker_san/html/landing2.html"></a>
+                    </div>
+                    <div>
+                      <p>Check if the latest versions are compatible or not, here</p>
+                      <a href ="landing3.html">
+                        <button>Beaking Changes</button>
+                      </a>
+                      <br />
+                      <a href="/home/keerthan/code/hackathons/sem3/hallothon/Dependency_checker_san/html/landing3.html"></a>
+                    </div>
+              </div>
+            </div>
+          
+        </div>
+    
+        <!-- <script>
+            console.log("yooo");
+            $(document).ready(function () {
+              $("form").submit(function (e) {
+                e.preventDefault();
+                const value = document.getElementById("xml path").value;
+                
+                console.log($("#xml path").val());
+                $.ajax({
+                  type: "POST",
+                  url: "http://127.0.0.1:5000/process",
+                  data: {'nm':value},
+                  crossDomain: true,
+                  success: function (resultData) {
+                    console.log("success");
+                    console.log(resultData);
+                    const textarea = document.getElementById('textarea');
+                    console.log(textarea.value)
+                    console.log(resultData.length)
+                    console.log(resultData[1][2])
+                    console.log(Object.keys(resultData).length)
+                 
+                    for(let i=0; i < Object.keys(resultData).length;i++){
+                      console.log("in for")
+                      textarea.value += "\r\n"+resultData[i][0]+"        "+resultData[i][1]+"        "+resultData[i][2];
+                    }
+                    console.log(textarea.value)
+                  },
+                  error: (result) => {
+                    console.log("error");
+                    console.log(result);
+                  },
+                });
+            });
+      });
+            </script>   -->
+                    <script>
+            console.log("yooo");
+            $(document).ready(function () {
+              $("form").submit(function (e) {
+                e.preventDefault();
+                const value = document.getElementById("xml_path").value;
+                
+                console.log($("#xml_path").val());
+                $.ajax({
+                  type: "POST",
+                  url: "http://127.0.0.1:5000/process",
+                  data: {'nm':value},
+                  crossDomain: true,
+                  success: function (resultData) {
+                    console.log("success");
+                    console.log(resultData);
+                    // const textarea = document.getElementById('textarea');
+                    const tbl = document.getElementById('dep_tbl');
+                    
+                    
+                    console.log(resultData[1][2])
+                    console.log(Object.keys(resultData).length)
+                    var dep_data='';
+                    for(let i=0; i <= Object.keys(resultData).length;i++){
+                      // console.log("in for")
+                      // textarea.value += "\r\n"+resultData[i][0]+"        "+resultData[i][1]+"        "+resultData[i][2];
+                      
+                      var row = tbl.insertRow(-1);
+                      var cell1 = row.insertCell(0)
+                      var cell2 = row.insertCell(1)
+                      var cell3 = row.insertCell(2)
+                      
+                      cell1.innerHTML = resultData[i][0];
+                      cell2.innerHTML = resultData[i][1];
+                      cell3.innerHTML = resultData[i][2];
+                      
+                    }
+                    
+                  },
+                  error: (result) => {
+                    console.log("error");
+                    console.log(result);
+                  },
+                });
+            });
+      });
+            </script>     
+    
+</body>
+</html>
